@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+name = Derek Ekins
+email = derek@spathi.com
+
+[alias]
+recent = !git for-each-ref --sort=committerdate refs/heads/ --format='%(color:green)%(committerdate:relative)%09%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(color:magenta)%(authorname)'
+gb = !git for-each-ref --sort=-committerdate refs/heads/ --format=' %(color:green)%(committerdate:relative)%(color:reset)%09%(HEAD) %(color:yellow)%(refname:short)%(color:reset) %(color:magenta)%(authorname)%(color:reset) • %(contents:subject)'
+gbi = !git for-each-ref --color=always --sort=-committerdate refs/heads/ --format=' %(color:green)%(committerdate:relative)%(color:reset)%09%(HEAD) %(color:yellow)%(refname:short)%(color:reset) %(color:magenta)%(authorname)%(color:reset) • %(contents:subject)' | fzf --ansi --header='checkout branch <choose branch>' --reverse | awk '{print $4}' | xargs git checkout
+bc = !git recent --sort=-committerdate | fzf --preview 'git log {4}' | awk '{ print $4 }' | xargs git checkout
+co = checkout
+st = status
