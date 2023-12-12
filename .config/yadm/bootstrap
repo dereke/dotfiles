@@ -1,0 +1,21 @@
+brew install nvim
+brew install tmux
+brew install rg
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# don't do this, use pyenv
+brew install python
+pip3 install --user powerline-status
+
+mkdir -p ~/.zsh
+git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
+echo "source ~/.zsh/git-prompt.zsh/git-prompt.zsh" >> .zshrc
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+npm i -g typescript
+npm i -g typescript-language-server
+npm i -g vscode-languageserver
+npm i -g vscode-langservers-extracted
+

@@ -11,3 +11,5 @@ gbi = !git for-each-ref --color=always --sort=-committerdate refs/heads/ --forma
 bc = !git recent --sort=-committerdate | fzf --preview 'git log {4}' | awk '{ print $4 }' | xargs git checkout
 co = checkout
 st = status
+[push]
+	autoSetupRemote = true

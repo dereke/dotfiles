@@ -1,4 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- npm i -g vscode-languageserver
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -8,8 +9,11 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
+  use { 'madox2/vim-ai' }
   
   use 'nvim-lua/lsp-status.nvim'
+  use 'github/copilot.vim'
+  use 'tpope/vim-fugitive'
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -302,7 +306,7 @@ return require('packer').startup(function()
         'julials',
         'rust_analyzer',
         'solargraph',
-        'sqls',
+        'sqlls',
         'tsserver',
         'yamlls',
         'eslint',

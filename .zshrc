@@ -1,23 +1,34 @@
 eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
 
- export NVM_DIR="$HOME/.nvm"
+
+export HOMEBREW_TEMP=/opt/homebrew/tmp
+
+export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
-# source ~/zsh_plugins/zsh-git-prompt/zshrc.sh
 source ~/.zsh/git-prompt.zsh/git-prompt.zsh
 source ~/.zsh/git-prompt.zsh/examples/compact.zsh
 
-# an example prompt
-# PROMPT='%B%m%~%b$(git_super_status) %# '
-alias python=/opt/homebrew/bin/python3
+export EDITOR=nvim
 alias vim=nvim
-alias tmux="tmux && tmux set-environment -g EDITOR nvim"
+tmux set-environment -g EDITOR nvim
 
-export PATH=$PATH:~/Library/Python/3.9/bin
+export PATH="/Applications/Postgres.app/Contents/Versions/15/bin/:$PATH"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob \"!.git/*\""
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# bun completions
+[ -s "/Users/derekekins/.bun/_bun" ] && source "/Users/derekekins/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
