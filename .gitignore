@@ -1,1 +1,3 @@
 .config/openai.token
+.config/configstore/
+.config/github-copilot/
